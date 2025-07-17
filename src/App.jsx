@@ -43,6 +43,19 @@ function App() {
           </button>
         
         </div>
+        {/* Light/Dark Mode Toggle Button */}
+        <div className="mt-auto mb-2 flex flex-col items-center">
+          <button
+            className="w-full flex items-center gap-3 px-5 py-4 rounded-2xl bg-gradient-to-r from-[#6d5dfc]/30 to-[#a18aff]/30 border border-[#a18aff]/30 shadow-lg backdrop-blur-lg text-white font-semibold hover:from-[#6d5dfc]/50 hover:to-[#a18aff]/50 transition"
+            style={{boxShadow: '0 2px 16px 0 #a18aff22'}}
+          >
+            <span className="material-icons" style={{fontSize: '2rem', fontWeight: 'bold'}}>bolt</span>
+            <span className="flex flex-col items-start">
+              <span className="font-bold leading-tight">Toggle Mode</span>
+              <span className="text-xs font-normal text-white/70">Switch light/dark theme</span>
+            </span>
+          </button>
+        </div>
       </aside>
 
       {/* Main Content */}
