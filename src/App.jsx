@@ -24,16 +24,12 @@ function App() {
           <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
             Dashboard
           </button>
-        </div>
-        {/* Account Section */}
-        <div className="mb-6">
-          <div className="text-xs text-gray-400 mb-2">Account</div>
           <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
-            Portfolio
+            Top Gainers
             <span className="ml-auto w-2 h-2 rounded bg-white/30"></span>
           </button>
           <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
-            Wallet
+            Top Losers
           </button>
           <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
             Watchlist
@@ -41,13 +37,11 @@ function App() {
         </div>
         {/* Activity Section */}
         <div className="mb-6">
-          <div className="text-xs text-gray-400 mb-2">Activity</div>
+          <div className="text-xs text-gray-400 mb-2">Info</div>
           <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
-            Trade
+            About
           </button>
-          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
-            Transactions
-          </button>
+        
         </div>
       </aside>
 
