@@ -21,7 +21,10 @@ function Sidebar({ section, setSection }) {
           className={`flex items-center px-4 py-3 rounded-xl transition text-white font-semibold w-full ${section === "topgainers" ? "bg-green-400/20 text-green-300" : "hover:bg-white/10"}`}
           onClick={() => setSection("topgainers")}
         >Top Gainers<span className="ml-auto w-2 h-2 rounded bg-green-300/40"></span></button>
-        <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">Top Losers</button>
+        <button
+          className={`flex items-center px-4 py-3 rounded-xl transition text-white font-semibold w-full ${section === "toplosers" ? "bg-red-400/20 text-red-300" : "hover:bg-white/10"}`}
+          onClick={() => setSection("toplosers")}
+        >Top Losers<span className="ml-auto w-2 h-2 rounded bg-red-300/40"></span></button>
         <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">Watchlist</button>
       </div>
       <div className="mb-6">

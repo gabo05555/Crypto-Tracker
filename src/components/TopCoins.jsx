@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const TopCoins = () => {
+
+const TopCoins = ({ type }) => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     let interval;
-    const fetchTopCoins = async () => {
+    const fetchCoins = async () => {
       try {
-        const res = await axios.get(
-          "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=8&tsym=USDT"
-        );
-        setCoins(res.data.Data || []);
+        let url;
+        if (type === "losers") {
+          // Fetch top losers by sorting top coins by 24h change ascending
+          url = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=50&tsym=USDT";
+        } else {
+          url = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=8&tsym=USDT";
+        }
+        const res = await axios.get(url);
+        let data = res.data.Data || [];
+        if (type === "losers") {
+          // Sort by 24h change ascending and take the top 8 losers
+          data = data
+            .filter(coin => coin.RAW && coin.RAW.USDT && typeof coin.RAW.USDT.CHANGEPCT24HOUR === 'number')
+            .sort((a, b) => a.RAW.USDT.CHANGEPCT24HOUR - b.RAW.USDT.CHANGEPCT24HOUR)
+            .slice(0, 8);
+        }
+        setCoins(data);
         setError(null);
       } catch (err) {
         setError("Failed to fetch top coins");
@@ -21,10 +35,11 @@ const TopCoins = () => {
         setLoading(false);
       }
     };
-    fetchTopCoins();
-    interval = setInterval(fetchTopCoins, 10000);
+    fetchCoins();
+    // Refresh every 24 hours for losers, 10s for gainers
+    interval = setInterval(fetchCoins, type === "losers" ? 24*60*60*1000 : 10000);
     return () => clearInterval(interval);
-  }, []);
+  }, [type]);
 
   // Show all top coins in a responsive grid
   return (

@@ -62,26 +62,47 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-row bg-[#181820]">
-      <Sidebar section={sidebarSection} setSection={setSidebarSection} />
+          <div className="sticky top-0 h-screen z-20">
+            <Sidebar section={sidebarSection} setSection={setSidebarSection} />
+          </div>
       <main className="flex-1 flex flex-col min-h-screen px-2 sm:px-4 md:px-8 py-4 md:py-8 bg-[#191921] max-w-[2000px] mx-auto">
-        <h1 className="text-5xl font-extrabold text-white mb-6">
-          Dashboard
-        </h1>
-        {/* <LivePrices prices={prices} /> removed as requested */}
-        {sidebarSection === "dashboard" && <>
-          <StatCards btcPrice={prices.bitcoin?.usdt} ethPrice={prices.ethereum?.usdt} />
-          <PriceAnalytics
-            ethHistory={ethHistory}
-            loadingHistory={loadingHistory}
-            selectedTimeframe={selectedTimeframe}
-            setSelectedTimeframe={setSelectedTimeframe}
-          />
-          <FilterBar />
-        </>}
-        {sidebarSection === "topgainers" && <>
-          <h2 className="text-3xl font-bold text-green-300 mb-6">Top Gainers Today</h2>
-          <TopCoins />
-        </>}
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">Dashboard</h1>
+          <p className="text-lg text-white/60 mb-4">Your live crypto analytics and market overview</p>
+        </div>
+        {sidebarSection === "dashboard" && (
+          <>
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">Overview</h2>
+              <div className="flex flex-col lg:flex-row gap-6">
+                <StatCards btcPrice={prices.bitcoin?.usdt} ethPrice={prices.ethereum?.usdt} />
+              </div>
+            </section>
+            <section className="mb-8">
+              <h2 className="text-2xl font-bold text-white mb-4 tracking-tight">ETH Price Analytics</h2>
+              <div className="bg-[#20202a] rounded-2xl p-4 md:p-8 shadow-lg border border-white/10">
+                <PriceAnalytics
+                  ethHistory={ethHistory}
+                  loadingHistory={loadingHistory}
+                  selectedTimeframe={selectedTimeframe}
+                  setSelectedTimeframe={setSelectedTimeframe}
+                />
+              </div>
+            </section>
+          </>
+        )}
+        {sidebarSection === "topgainers" && (
+          <>
+            <h2 className="text-3xl font-bold text-green-300 mb-6">Top Gainers Today</h2>
+            <TopCoins />
+          </>
+        )}
+        {sidebarSection === "toplosers" && (
+          <>
+            <h2 className="text-3xl font-bold text-red-300 mb-6">Top Losers Today</h2>
+            <TopCoins type="losers" />
+          </>
+        )}
       </main>
     </div>
   );
