@@ -3,8 +3,10 @@ import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import LivePrices from "./components/LivePrices";
 import StatCards from "./components/StatCards";
+import PriceAnalytics from "./components/PriceAnalytics";
 import FilterBar from "./components/FilterBar";
 import VaultCard from "./components/VaultCard";
+import TopCoins from "./components/TopCoins";
 
 function App() {
   const [prices, setPrices] = useState({});
@@ -35,10 +37,11 @@ function App() {
         <h1 className="text-5xl font-extrabold text-white mb-6">
           Vault <span className="text-white/60 font-light">market place</span>
         </h1>
-        <LivePrices prices={prices} />
-        <StatCards />
+        {/* <LivePrices prices={prices} /> removed as requested */}
+        <StatCards btcPrice={prices.bitcoin?.usdt} ethPrice={prices.ethereum?.usdt} />
+        <PriceAnalytics />
         <FilterBar />
-        <VaultCard />
+        <TopCoins />
       </main>
     </div>
   );
