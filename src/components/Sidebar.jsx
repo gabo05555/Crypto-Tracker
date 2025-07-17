@@ -3,8 +3,8 @@ function Sidebar({ section, setSection }) {
     <aside className="w-72 min-w-[180px] max-w-[260px] min-h-screen flex flex-col border-r border-[#23262b] px-6 py-8 bg-[#181a20] backdrop-blur-xl shadow-2xl shadow-black/30">
       <div className="flex items-center justify-between mb-6">
         <div className="flex flex-col">
-          <div className="text-lg font-bold text-white leading-tight">Quantix</div>
-          <div className="text-xs text-gray-400">AI-Powered Trading</div>
+          <div className="text-lg font-bold text-white leading-tight">CryptoView</div>
+          <div className="text-xs text-gray-400">Real-time crypto market prices</div>
         </div>
         <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="Back"></button>
       </div>
