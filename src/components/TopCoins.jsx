@@ -28,13 +28,13 @@ const TopCoins = () => {
 
   // Show all top coins in a responsive grid
   return (
-    <div className="relative bg-gradient-to-br from-[#23232b]/80 via-[#23232b]/60 to-[#6d5dfc]/20 rounded-3xl p-8 shadow-2xl border border-[#aaffaa]/20 min-h-[420px] mt-8 overflow-hidden backdrop-blur-xl">
+    <div className="relative bg-gradient-to-br from-[#23232b]/80 via-[#23232b]/60 to-[#6d5dfc]/20 rounded-3xl p-4 md:p-8 shadow-2xl border border-[#aaffaa]/20 min-h-[320px] md:min-h-[420px] mt-6 md:mt-8 overflow-hidden backdrop-blur-xl">
       <div className="absolute left-0 top-0 w-full h-full pointer-events-none" style={{background: 'radial-gradient(circle at 70% 20%, #aaffaa33 0%, #23232b00 70%)'}}></div>
       <div className="text-lg font-bold text-white/80 mb-6">Top Coins Today</div>
       {loading && <div className="text-white/60">Loading...</div>}
       {error && <div className="text-red-400">{error}</div>}
       {!loading && !error && coins.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
           {coins.map((coin) => (
             <div key={coin.CoinInfo.Id} className="flex flex-col items-center bg-[#191921]/80 rounded-2xl p-6 shadow-lg border border-[#aaffaa]/10 hover:scale-105 hover:shadow-[0_0_24px_0_#aaffaa55] transition-all duration-300">
               <img
@@ -45,7 +45,12 @@ const TopCoins = () => {
               />
               <div className="uppercase text-green-300 text-xs font-bold tracking-widest mb-1">{coin.CoinInfo.FullName}</div>
               <div className="text-2xl font-extrabold text-white drop-shadow-[0_0_8px_#aaffaa99] mb-1">
-                {coin.RAW?.USDT?.PRICE ? coin.RAW.USDT.PRICE.toLocaleString(undefined, { maximumFractionDigits: 2 }) : "-"}
+                {coin.RAW?.USDT?.PRICE !== undefined
+                  ? (Math.abs(coin.RAW.USDT.PRICE) >= 1
+                      ? coin.RAW.USDT.PRICE.toLocaleString(undefined, { maximumFractionDigits: 2 })
+                      : coin.RAW.USDT.PRICE.toLocaleString(undefined, { maximumFractionDigits: 12 })
+                    )
+                  : "-"}
               </div>
               <div className={
                 coin.RAW?.USDT?.CHANGEPCT24HOUR > 0

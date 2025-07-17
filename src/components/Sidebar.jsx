@@ -1,6 +1,6 @@
 function Sidebar({ section, setSection }) {
   return (
-    <aside className="w-80 min-h-screen flex flex-col border-r border-[#23262b] px-8 py-10 bg-[#181a20] backdrop-blur-xl shadow-2xl shadow-black/30">
+    <aside className="w-72 min-w-[180px] max-w-[260px] min-h-screen flex flex-col border-r border-[#23262b] px-6 py-8 bg-[#181a20] backdrop-blur-xl shadow-2xl shadow-black/30">
       <div className="flex items-center justify-between mb-6">
         <div className="flex flex-col">
           <div className="text-lg font-bold text-white leading-tight">Quantix</div>
