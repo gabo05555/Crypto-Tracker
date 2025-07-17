@@ -12,13 +12,12 @@ function App() {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const [btcRes, ethRes] = await Promise.all([
-          axios.get("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"),
-          axios.get("https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT")
-        ]);
+        const res = await axios.get(
+          "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USDT"
+        );
         setPrices({
-          bitcoin: { usdt: parseFloat(btcRes.data.price) },
-          ethereum: { usdt: parseFloat(ethRes.data.price) }
+          bitcoin: { usdt: res.data.BTC?.USDT },
+          ethereum: { usdt: res.data.ETH?.USDT }
         });
       } catch (err) {
         console.error("Failed to fetch prices", err);
