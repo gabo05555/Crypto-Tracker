@@ -65,7 +65,7 @@ function App() {
       <Sidebar section={sidebarSection} setSection={setSidebarSection} />
       <main className="flex-1 flex flex-col min-h-screen px-2 sm:px-4 md:px-8 py-4 md:py-8 bg-[#191921] max-w-[2000px] mx-auto">
         <h1 className="text-5xl font-extrabold text-white mb-6">
-          Vault <span className="text-white/60 font-light">market place</span>
+          Dashboard
         </h1>
         {/* <LivePrices prices={prices} /> removed as requested */}
         {sidebarSection === "dashboard" && <>
@@ -77,7 +77,6 @@ function App() {
             setSelectedTimeframe={setSelectedTimeframe}
           />
           <FilterBar />
-          <TopCoins />
         </>}
         {sidebarSection === "topgainers" && <>
           <h2 className="text-3xl font-bold text-green-300 mb-6">Top Gainers Today</h2>

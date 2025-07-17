@@ -9,9 +9,7 @@ function Sidebar({ section, setSection }) {
         <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="Back"></button>
       </div>
       <hr className="border-white/10 mb-6" />
-      <div className="mb-2">
-        <div className="text-2xl font-extrabold text-white leading-tight">Welcome<br/>Back, Jason</div>
-      </div>
+      {/* Welcome line removed as requested */}
       <hr className="border-white/10 my-6" />
       <div className="mb-6">
         <div className="text-xs text-gray-400 mb-2">Overview</div>
