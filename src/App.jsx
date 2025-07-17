@@ -60,95 +60,121 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-h-screen px-10 py-8 bg-[#191921]">
-        {/* Topbar/Search */}
-        <div className="flex items-center justify-between mb-10">
-          <div className="flex items-center gap-4 w-full max-w-2xl">
-            <div className="flex items-center bg-[#23232b] px-4 py-2 rounded-lg w-full">
-              <span className="material-icons text-gray-500 mr-2">search</span>
-              <input type="text" placeholder="Search for services" className="bg-transparent outline-none text-gray-200 w-full" />
+        {/* Dashboard Header */}
+        <h1 className="text-5xl font-extrabold text-white mb-10">
+          Vault <span className="text-white/60 font-light">market place</span>
+        </h1>
+
+        {/* Stat Cards Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* Active credit */}
+          <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col justify-between min-h-[160px]">
+            <div className="text-sm text-white/60 mb-2">Active credit</div>
+            <div className="flex items-end gap-2">
+              <span className="text-4xl font-bold text-white">11,2</span>
+              <span className="text-lg text-white/60 font-semibold">ETH</span>
             </div>
-            <button className="ml-4 p-3 rounded-lg bg-[#23232b] hover:bg-[#282832] text-gray-400"><span className="material-icons">settings</span></button>
+            <div className="text-xs text-white/40 mt-2">$ 288477,50</div>
           </div>
-          <div className="flex items-center gap-4">
-            <button className="p-3 rounded-lg bg-[#23232b] hover:bg-[#282832] text-gray-400"><span className="material-icons">notifications</span></button>
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="profile" className="w-10 h-10 rounded-full border-2 border-blue-400" />
+          {/* Payment goal */}
+          <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col justify-between min-h-[160px]">
+            <div className="text-sm text-white/60 mb-2">Payment goal</div>
+            <div className="flex items-end gap-2">
+              <span className="text-3xl font-bold text-white">34%</span>
+            </div>
+            <div className="flex flex-col gap-1 mt-2">
+              <span className="text-xs text-white/40">$005643</span>
+              <span className="text-xs text-white/40">$03456643</span>
+            </div>
+          </div>
+          {/* Price analytics */}
+          <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col min-h-[160px] col-span-1 lg:col-span-2">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-sm text-white/60">Price analytics</div>
+              <div className="flex gap-2">
+                <button className="bg-[#191921] text-xs text-white/60 rounded-lg px-2 py-1">BTC_ETH</button>
+                <button className="bg-[#191921] text-xs text-white/60 rounded-lg px-2 py-1">MDFFGHJ</button>
+              </div>
+            </div>
+            <div className="flex items-end gap-2">
+              <span className="text-3xl font-bold text-white">$ 2,44</span>
+              <span className="text-lg text-white/60 font-semibold">ETH</span>
+            </div>
+            {/* Placeholder for chart */}
+            <div className="mt-4 h-24 w-full bg-gradient-to-r from-[#6d5dfc]/30 to-[#a18aff]/30 rounded-xl flex items-end overflow-hidden relative">
+              {/* Simulated bars */}
+              <div className="absolute left-4 bottom-4 text-xs text-white/60">$ 25778</div>
+              <div className="flex items-end h-full w-full gap-2 px-8">
+                <div className="bg-[#a18aff] w-4 h-8 rounded-t-lg opacity-70"></div>
+                <div className="bg-[#a18aff] w-4 h-12 rounded-t-lg opacity-70"></div>
+                <div className="bg-[#a18aff] w-4 h-16 rounded-t-lg opacity-70"></div>
+                <div className="bg-[#f6e58d] w-4 h-20 rounded-t-lg opacity-80"></div>
+                <div className="bg-[#f6e58d] w-4 h-24 rounded-t-lg opacity-80"></div>
+                <div className="bg-[#a18aff] w-4 h-16 rounded-t-lg opacity-70"></div>
+                <div className="bg-[#a18aff] w-4 h-20 rounded-t-lg opacity-70"></div>
+              </div>
+              <div className="absolute right-8 top-4 text-green-400 text-xs font-bold">+86%</div>
+            </div>
+          </div>
+          {/* Next payment */}
+          <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col justify-between min-h-[160px]">
+            <div className="text-sm text-white/60 mb-2">Next payment</div>
+            <div className="flex items-end gap-2">
+              <span className="text-4xl font-bold text-white">06</span>
+              <span className="text-lg text-white/60 font-semibold">Nov</span>
+            </div>
+            <div className="flex gap-2 mt-2">
+              <div className="flex flex-col items-center">
+                <span className="text-xs text-white/40">Days left</span>
+                <span className="text-lg font-bold text-white">15</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Discover Place */}
-        <div className="mb-10">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Discover Place</h2>
-            <button className="text-gray-400 text-sm hover:underline">View All</button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-[#23232b] rounded-2xl shadow-lg p-0 overflow-hidden flex flex-col">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Petra Garden" className="h-48 w-full object-cover" />
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-blue-400">Jordan</span>
-                  <button className="p-2 rounded-full bg-[#23232b] hover:bg-[#282832] text-gray-400"><span className="material-icons">favorite_border</span></button>
-                </div>
-                <div className="text-lg font-semibold text-white mb-1">Petra Garden</div>
-                <div className="flex items-center gap-1 text-yellow-400 text-xs font-semibold"><span className="material-icons text-base">star</span>4.2</div>
-              </div>
-            </div>
-            {/* Card 2 */}
-            <div className="bg-[#23232b] rounded-2xl shadow-lg p-0 overflow-hidden flex flex-col">
-              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=400&q=80" alt="Tuileries Garden" className="h-48 w-full object-cover" />
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-blue-400">Paris, France</span>
-                  <button className="p-2 rounded-full bg-[#23232b] hover:bg-[#282832] text-gray-400"><span className="material-icons">favorite_border</span></button>
-                </div>
-                <div className="text-lg font-semibold text-white mb-1">Tuileries Garden</div>
-                <div className="flex items-center gap-1 text-yellow-400 text-xs font-semibold"><span className="material-icons text-base">star</span>4.5</div>
-              </div>
-            </div>
-            {/* Card 3 */}
-            <div className="bg-[#23232b] rounded-2xl shadow-lg p-0 overflow-hidden flex flex-col">
-              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80" alt="Eiffel Tower" className="h-48 w-full object-cover" />
-              <div className="p-5 flex-1 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-blue-400">Paris, France</span>
-                  <button className="p-2 rounded-full bg-[#23232b] hover:bg-[#282832] text-gray-400"><span className="material-icons">favorite_border</span></button>
-                </div>
-                <div className="text-lg font-semibold text-white mb-1">Eiffel tower</div>
-                <div className="flex items-center gap-1 text-yellow-400 text-xs font-semibold"><span className="material-icons text-base">star</span>5.3</div>
-              </div>
-            </div>
+        {/* Filter Bar */}
+        <div className="flex items-center gap-2 mb-6">
+          <button className="bg-[#23232b] text-yellow-200 rounded-full px-5 py-2 font-semibold shadow border border-yellow-100/20 flex items-center gap-2">
+            <span className="material-icons text-lg">save</span> All
+          </button>
+          <button className="bg-yellow-100/80 text-[#23232b] rounded-full px-5 py-2 font-semibold shadow border border-yellow-100/20">Stake</button>
+          <button className="bg-[#23232b] text-white/80 rounded-full px-5 py-2 font-semibold shadow border border-white/10">Vaults</button>
+          <button className="bg-[#23232b] text-white/80 rounded-full px-5 py-2 font-semibold shadow border border-white/10">Operate</button>
+          <button className="bg-[#23232b] text-white/80 rounded-full px-5 py-2 font-semibold shadow border border-white/10">Ecosystem</button>
+          <div className="ml-auto flex items-center gap-2">
+            <span className="text-white/60 text-sm">Search</span>
+            <span className="material-icons text-white/40 text-base">search</span>
+            <span className="text-white/60 text-sm">TVL</span>
+            <span className="material-icons text-white/40 text-base">expand_more</span>
           </div>
         </div>
 
-        {/* Most Visited Place */}
-        <div>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">Most Visited Place</h2>
-            <span className="text-gray-400 text-sm">Details</span>
-          </div>
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Map/Chart Placeholder */}
-            <div className="bg-[#23232b] rounded-2xl flex-1 p-8 flex items-center justify-center min-h-[220px]">
-              <span className="text-gray-500">[Map/Chart Placeholder]</span>
+        {/* Vault Card */}
+        <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col md:flex-row items-center gap-6 mb-8">
+          <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/crystal-1957745_1280.png" alt="Genesis" className="w-24 h-24 rounded-xl object-cover" />
+          <div className="flex-1 flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-bold text-white">Genesis</span>
+              <span className="bg-[#191921] text-white/60 text-xs rounded px-2 py-1">Created October 2023</span>
+              <span className="bg-[#191921] text-white/60 text-xs rounded px-2 py-1">MEV Smoothing</span>
+              <span className="bg-[#191921] text-white/60 text-xs rounded px-2 py-1">Public</span>
             </div>
-            {/* Top Attractions */}
-            <div className="bg-[#23232b] rounded-2xl w-full max-w-xs p-6 flex flex-col gap-4">
-              <div className="font-semibold text-white mb-2">Top Attractions</div>
-              <div className="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=80&q=80" alt="Olympic National Park" className="w-12 h-12 rounded-xl object-cover" />
-                <div>
-                  <div className="text-sm text-white font-semibold">Olympic National Park</div>
-                  <div className="text-xs text-gray-400">United States</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=80&q=80" alt="Magic Kingdom Park" className="w-12 h-12 rounded-xl object-cover" />
-                <div>
-                  <div className="text-sm text-white font-semibold">Magic Kingdom Park</div>
-                  <div className="text-xs text-gray-400">United States</div>
-                </div>
-              </div>
+            <div className="text-xs text-white/60">
+              This is the vault for the StakeWise V2 pool. After migrating from StakeWise V2 to V3, you will be staking in this vault. The validators in this vault are run by StakeWise
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 min-w-[180px]">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white/60">APY</span>
+              <span className="text-yellow-200 font-bold">4.92% - 6.51%</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white/60">TVL</span>
+              <span className="text-white font-bold flex items-center gap-1"><span className="material-icons text-base text-blue-300">currency_ethereum</span>141.16K</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-white/60">Performance</span>
+              <span className="text-green-400 font-bold">Good</span>
             </div>
           </div>
         </div>
