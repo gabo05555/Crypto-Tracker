@@ -45,20 +45,6 @@ const StatCards = ({ btcPrice, ethPrice }) => (
         <div className="absolute right-8 top-4 text-green-400 text-xs font-bold">+86%</div>
       </div>
     </div>
-    {/* Next payment */}
-    <div className="bg-[#23232b] rounded-2xl p-6 shadow-lg border border-white/10 flex flex-col justify-between min-h-[160px]">
-      <div className="text-sm text-white/60 mb-2">Next payment</div>
-      <div className="flex items-end gap-2">
-        <span className="text-4xl font-bold text-white">06</span>
-        <span className="text-lg text-white/60 font-semibold">Nov</span>
-      </div>
-      <div className="flex gap-2 mt-2">
-        <div className="flex flex-col items-center">
-          <span className="text-xs text-white/40">Days left</span>
-          <span className="text-lg font-bold text-white">15</span>
-        </div>
-      </div>
-    </div>
   </div>
 );
 
