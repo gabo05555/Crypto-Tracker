@@ -2,47 +2,52 @@ function App() {
   return (
     <div className="min-h-screen flex flex-row bg-[#181820]">
       {/* Sidebar */}
-      <aside className="w-72 min-h-screen bg-[#23232b] text-gray-200 flex flex-col border-r border-[#23262b] px-6 py-8">
-        {/* Logo */}
-        <div className="mb-10">
-          <span className="text-2xl font-extrabold tracking-wide text-white">TravelTrek.</span>
+      <aside className="w-80 min-h-screen flex flex-col border-r border-[#23262b] px-8 py-10 bg-[#181a20] backdrop-blur-xl shadow-2xl shadow-black/30">
+        {/* Logo and Back Button */}
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col">
+            <div className="text-lg font-bold text-white leading-tight">Quantix</div>
+            <div className="text-xs text-gray-400">AI-Powered Trading</div>
+          </div>
+          <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition" aria-label="Back"></button>
         </div>
-        {/* Navigation */}
-        <nav className="flex flex-col gap-2">
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg font-semibold text-white bg-[#23232b] border border-[#2d2d36] shadow-sm transition hover:bg-[#282832] focus:bg-[#282832]">
-            <span className="material-icons text-lg">dashboard</span>
+        <hr className="border-white/10 mb-6" />
+        {/* Welcome Message */}
+        <div className="mb-2">
+          <div className="text-2xl font-extrabold text-white leading-tight">Welcome<br/>Back, Jason</div>
+          <div className="text-xs text-gray-400 mt-2">Last login: 15 Jun 2025</div>
+        </div>
+        <hr className="border-white/10 my-6" />
+        {/* Overview Section */}
+        <div className="mb-6">
+          <div className="text-xs text-gray-400 mb-2">Overview</div>
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
             Dashboard
           </button>
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-[#282832] transition">
-            <span className="material-icons text-lg">place</span>
-            Places
+        </div>
+        {/* Account Section */}
+        <div className="mb-6">
+          <div className="text-xs text-gray-400 mb-2">Account</div>
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
+            Portfolio
+            <span className="ml-auto w-2 h-2 rounded bg-white/30"></span>
           </button>
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-[#282832] transition">
-            <span className="material-icons text-lg">confirmation_number</span>
-            Ticket
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
+            Wallet
           </button>
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-[#282832] transition">
-            <span className="material-icons text-lg">map</span>
-            Map
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
+            Watchlist
           </button>
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-[#282832] transition">
-            <span className="material-icons text-lg">payments</span>
-            Payments
+        </div>
+        {/* Activity Section */}
+        <div className="mb-6">
+          <div className="text-xs text-gray-400 mb-2">Activity</div>
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
+            Trade
           </button>
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-[#282832] transition">
-            <span className="material-icons text-lg">calendar_today</span>
-            Calender
+          <button className="flex items-center px-4 py-3 rounded-xl hover:bg-white/10 transition text-white font-semibold w-full">
+            Transactions
           </button>
-        </nav>
-        {/* Popular Place */}
-        <div className="mt-auto pt-10">
-          <div className="text-xs text-gray-400 mb-2">Popular Place</div>
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-blue-400"><span className="w-2 h-2 rounded-full bg-blue-400"></span> Paris/France</div>
-            <div className="flex items-center gap-2 text-pink-400"><span className="w-2 h-2 rounded-full bg-pink-400"></span> New York/United States</div>
-            <div className="flex items-center gap-2 text-yellow-400"><span className="w-2 h-2 rounded-full bg-yellow-400"></span> California/United States</div>
-            <button className="text-xs text-gray-400 mt-2 hover:underline text-left">See More &rarr;</button>
-          </div>
         </div>
       </aside>
 
